@@ -6,3 +6,112 @@ docker and kubernetes --> (deployment)
 sonarqube --> (code quality)
 Junit --> (unit testing)
 
+# Maven Cheatsheet
+
+## 📌 Basic Commands
+
+| Command | Description |
+|---------|-------------|
+| `mvn --version` | Check Maven version |
+| `mvn clean` | Remove `target/` folder (compiled files, dependencies, reports) |
+| `mvn compile` | Compile source code (without running tests) |
+| `mvn test` | Run tests |
+| `mvn package` | Package the project into a JAR/WAR file inside `target/` |
+| `mvn install` | Install the package to the local repository (`~/.m2/repository/`) |
+| `mvn deploy` | Deploy package to a remote repository |
+
+---
+
+## 📌 Dependency Management
+
+| Command | Description |
+|---------|-------------|
+| `mvn dependency:tree` | Show the dependency tree (useful for debugging conflicts) |
+| `mvn dependency:resolve` | Show resolved dependencies |
+| `mvn dependency:list` | List all dependencies in `pom.xml` |
+| `mvn dependency:analyze` | Analyze and suggest unused/missing dependencies |
+| `mvn dependency:purge-local-repository` | Force re-download of dependencies |
+
+---
+
+## 📌 Running the Application
+
+| Command | Description |
+|---------|-------------|
+| `mvn exec:java -Dexec.mainClass="com.example.Main"` | Run the main class (`exec-maven-plugin` needed) |
+| `mvn spring-boot:run` | Run a Spring Boot application |
+
+---
+
+## 📌 Lifecycle Phases
+
+| Phase | Description |
+|-------|-------------|
+| `mvn validate` | Validate `pom.xml` before building |
+| `mvn compile` | Compile source code |
+| `mvn test` | Run unit tests |
+| `mvn package` | Package into JAR/WAR |
+| `mvn verify` | Run integration tests (if configured) |
+| `mvn install` | Install to local repo (`~/.m2/repository/`) |
+| `mvn deploy` | Deploy to remote repository |
+
+---
+
+## 📌 Skipping Tests
+
+| Command | Description |
+|---------|-------------|
+| `mvn install -DskipTests` | Skip running tests but still compile them |
+| `mvn install -Dmaven.test.skip=true` | Skip compiling and running tests |
+
+---
+
+## 📌 Cleaning & Forcing Updates
+
+| Command | Description |
+|---------|-------------|
+| `mvn clean install` | Clean and install the project |
+| `mvn clean package` | Clean and package the project |
+| `mvn clean dependency:resolve` | Force update dependencies |
+
+---
+
+## 📌 Profile Management
+
+| Command | Description |
+|---------|-------------|
+| `mvn clean package -Pdev` | Activate a Maven profile named `dev` |
+| `mvn help:active-profiles` | List active profiles |
+
+---
+
+## 📌 Generating a New Project
+
+| Command | Description |
+|---------|-------------|
+| `mvn archetype:generate` | Generate a new project using an archetype |
+| `mvn archetype:generate -DgroupId=com.example -DartifactId=my-app -Dpackage=com.example.app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false` | Create a basic Maven project |
+
+---
+
+## 📌 Plugins & Reports
+
+| Command | Description |
+|---------|-------------|
+| `mvn help:effective-pom` | Show the full effective `pom.xml` |
+| `mvn help:effective-settings` | Show the effective `settings.xml` |
+| `mvn site` | Generate project documentation |
+
+---
+
+## 📌 Updating Dependencies
+
+| Command | Description |
+|---------|-------------|
+| `mvn versions:display-dependency-updates` | Check for newer versions of dependencies |
+| `mvn versions:display-plugin-updates` | Check for newer versions of plugins |
+| `mvn versions:use-latest-versions` | Upgrade dependencies to the latest versions |
+
+---
+
+# 🔥 Master these, and you'll handle Maven like a pro!
