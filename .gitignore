@@ -11,6 +11,8 @@ target/
 *.iws
 *.iml
 *.ipr
+/htmlReport
+/htmlReport/*
 
 ### Eclipse ###
 .apt_generated
