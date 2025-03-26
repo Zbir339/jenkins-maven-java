@@ -31,6 +31,11 @@ pipeline{
                     echo "==== Fin Test ===="
                 '''
             }
+             post {
+                   always {
+                        junit 'target/surefire-reports/*.xml'
+                   }
+             }
         }
 
     }
