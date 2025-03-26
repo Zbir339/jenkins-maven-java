@@ -49,7 +49,7 @@ pipeline{
              steps {
                   sh '''
                        echo "Installing Railway CLI..."
-                       sudo curl -fsSL https://railway.app/install.sh | sh
+                       curl -fsSL https://railway.app/install.sh | sh
                        echo "Railway CLI Installed."
                   '''
              }
