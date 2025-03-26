@@ -32,10 +32,14 @@ pipeline{
                 '''
             }
              post {
+             // afficher un diag des test emisent
                    always {
                         junit 'target/surefire-reports/*.xml'
                    }
              }
+        }
+        stage('Deploy'){
+
         }
 
     }
