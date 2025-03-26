@@ -36,6 +36,7 @@ pipeline{
                     echo "==== Fin Test ===="
                 '''
             }
+
              post {
              // afficher un diag des test emisent
                    always {
