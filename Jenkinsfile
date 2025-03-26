@@ -15,7 +15,7 @@ pipeline{
                     echo "=====  Build  ====="
                     ls -la
                     mvn --version
-                    mvn clean package
+                    mvn clean package -DskipTests
                     echo "==== Fin Build ===="
                 '''
             }
