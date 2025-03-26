@@ -8,11 +8,13 @@ pipeline{
     stages{
 
         stage('Build'){
+            steps{
+                sh '''
+                    echo "Bonjour ceci est inside le docker"
+                    ls -la
+                '''
+            }
 
-            sh '''
-                echo "Bonjour ceci est inside le docker"
-                ls -la
-            '''
 
         }
 
