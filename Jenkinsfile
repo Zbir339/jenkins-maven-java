@@ -27,6 +27,7 @@ pipeline{
                 sh '''
                     echo "Phase ==== Test ===="
                     ls -la
+                    mvn test
                     echo "==== Fin Test ===="
                 '''
             }
