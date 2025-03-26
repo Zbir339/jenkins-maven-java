@@ -1,0 +1,8 @@
+This Project is an introduction to dev/ops
+
+I'll be using ci --> (using jenkins)
+cd --> (jenkins as well)
+docker and kubernetes --> (deployment)
+sonarqube --> (code quality)
+Junit --> (unit testing)
+
