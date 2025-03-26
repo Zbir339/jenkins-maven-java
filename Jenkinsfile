@@ -10,11 +10,12 @@ pipeline{
         stage('Build'){
             steps{
                 // tester l'existence de maven
+                // clean if there is an existing target folder then package the whole project
                 sh '''
                     echo "=====  Build  ====="
                     ls -la
                     mvn --version
-                    mvn clean package // clean if there is an existing target folder then package the whole project
+                    mvn clean package
                     echo "==== Fin Build ===="
                 '''
             }
