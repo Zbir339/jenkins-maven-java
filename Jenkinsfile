@@ -7,7 +7,7 @@ pipeline{
     }
 
     environment {
-        RAILWAY_TOKEN= credentials('netlify_token')
+        RAILWAY_TOKEN= credentials('railway')
     }
 
     stages{
