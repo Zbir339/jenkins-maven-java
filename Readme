@@ -115,3 +115,14 @@ Junit --> (unit testing)
 ---
 
 # 🔥 Master these, and you'll handle Maven like a pro!
+
+
+### Docker ####
+
++++ docker building and pushing a new image +++
+
+docker built -t {username or org}\{image-name}:{tag}   .(or specify the dockerfile name )
+docker login
+docker push {image-name == {username or org}\{image-name}:{tag}}
+
++++ THAT'S IT ENJOY +++
