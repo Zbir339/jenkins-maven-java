@@ -5,6 +5,12 @@ pipeline{
             image 'maven:3.8.3-openjdk-17'
         }
     }
+
+    environment {
+            IMAGE_NAME = "my-jenkins-app"
+            CONTAINER_NAME = "my-app-jenkins"
+    }
+
     stages{
 
         stage('Build'){
@@ -39,7 +45,27 @@ pipeline{
              }
         }
         stage('Deploy'){
+             agent {
+                 docker {
+                      image 'docker:24.0.7'
+                      args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
+                 }
+             }
+              steps {
+                  sh '''
+                      echo "===== Building Docker Image ====="
+                      docker build -t $IMAGE_NAME .
 
+                      echo "===== Stopping and Removing Existing Container ====="
+                      docker stop $CONTAINER_NAME || true
+                      docker rm $CONTAINER_NAME || true
+
+                      echo "===== Running New Container ====="
+                      docker run -d --name $CONTAINER_NAME -p 8080:8080 $IMAGE_NAME
+
+                      echo "===== Deployment Complete ====="
+                  '''
+                         }
         }
 
     }
