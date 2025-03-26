@@ -61,7 +61,6 @@ pipeline{
                         railway login --token $RAILWAY_TOKEN
                         railway up
                    '''
-                   }
               }
         }
     }
