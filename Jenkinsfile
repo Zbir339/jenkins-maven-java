@@ -45,23 +45,23 @@ pipeline{
              }
         }
 
-        stage('Setup Railway') {
-             steps {
-                  sh '''
-                       echo "Installing Railway CLI..."
-                       curl -fsSL https://railway.app/install.sh | sh
-                       echo "Railway CLI Installed."
-                  '''
-             }
-        }
-
-        stage('Deploy to Railway') {
-              steps {
-                   sh '''
-                        railway login --token $RAILWAY_TOKEN
-                        railway up
-                   '''
-              }
-        }
+//         stage('Setup Railway') {
+//              steps {
+//                   sh '''
+//                        echo "Installing Railway CLI..."
+//                        curl -fsSL https://railway.app/install.sh | sh
+//                        echo "Railway CLI Installed."
+//                   '''
+//              }
+//         }
+//
+//         stage('Deploy to Railway') {
+//               steps {
+//                    sh '''
+//                         railway login --token $RAILWAY_TOKEN
+//                         railway up
+//                    '''
+//               }
+//         }
     }
 }
