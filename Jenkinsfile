@@ -50,7 +50,7 @@ pipeline{
                             sh '''
                             git config user.name "Jenkins"
                             git config user.email "jenkins@example.com"
-                            git add target/*.jar
+                            git add target/*.jar Dockerfile
                             git commit -m "Deploy new version"
                             git push https://$TOKEN@github.com/Zbir339/railway-consumed-jar.git $GIT_BRANCH
                             '''
