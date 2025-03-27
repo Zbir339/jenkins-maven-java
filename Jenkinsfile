@@ -45,19 +45,6 @@ pipeline{
                    }
              }
         }
-        stage('Push to Deployment Repo') {
-                    steps {
-                            sh '''
-                            git config user.name "Jenkins"
-                            git config user.email "jenkins@example.com"
-                            git checkout $GIT_BRANCH
-                            git add -f target/*.jar Dockerfile
-                            git commit -m "Deploy new version"
-                            git push -u deploy $GIT_BRANCH
-                            '''
-                    }
-                }
-
 //         stage('Setup Railway') {
 //              steps {
 //                   sh '''
