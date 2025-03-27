@@ -7,7 +7,7 @@ pipeline{
     }
 
     environment {
-        RAILWAY_TOKEN= credentials('railway')
+        GIT_BRANCH = "main"
     }
 
     stages{
@@ -44,6 +44,19 @@ pipeline{
                    }
              }
         }
+        stage('Push to Deployment Repo') {
+                    steps {
+                        withCredentials([string(credentialsId: 'github-token', variable: 'TOKEN')]) {
+                            sh '''
+                            git config user.name "Jenkins"
+                            git config user.email "jenkins@example.com"
+                            git add target/*.jar
+                            git commit -m "Deploy new version"
+                            git push https://$TOKEN@github.com/Zbir339/railway-consumed-jar.git $GIT_BRANCH
+                            '''
+                        }
+                    }
+                }
 
 //         stage('Setup Railway') {
 //              steps {
