@@ -8,6 +8,7 @@ pipeline{
 
     environment {
         GIT_BRANCH = "main"
+        GIT_TOKEN = credentials('github-token')
     }
 
     stages{
@@ -46,15 +47,13 @@ pipeline{
         }
         stage('Push to Deployment Repo') {
                     steps {
-                        withCredentials([string(credentialsId: 'github-token', variable: 'TOKEN')]) {
                             sh '''
                             git config user.name "Jenkins"
                             git config user.email "jenkins@example.com"
                             git add target/*.jar Dockerfile
                             git commit -m "Deploy new version"
-                            git push https://$TOKEN@github.com/Zbir339/railway-consumed-jar.git $GIT_BRANCH
+                            git push https://$GIT_TOKEN@github.com/Zbir339/railway-consumed-jar.git $GIT_BRANCH
                             '''
-                        }
                     }
                 }
 
