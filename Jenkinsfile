@@ -52,9 +52,9 @@ pipeline{
                             git config user.email "jenkins@example.com"
                             git add -f target/*.jar Dockerfile
                             git commit -m "Deploy new version"
-                            git remote add origin https://$GIT_TOKEN@github.com/Zbir339/railway-consumed-jar.git
+                            git remote add deploy https://$GIT_TOKEN@github.com/Zbir339/railway-consumed-jar.git
                             git branch -M $GIT_BRANCH
-                            git push -u origin $GIT_BRANCH
+                            git push -u deploy $GIT_BRANCH
                             '''
                     }
                 }
